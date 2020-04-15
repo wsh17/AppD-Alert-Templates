@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red4\green0\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c3697\c8760\c100000;}
+\margl1440\margr1440\vieww11100\viewh8100\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #set( $sm = $!\{latestEvent.summaryMessage.replace('"',"*")\} )\
+#set( $sm = $sm.replace("<b>", "*") )\
+#set( $sm = $sm.replace("</b>", "*") )\
+#set( $sm = $sm.replace("<br>", " ") )\
+#set( $em = $!\{latestEvent.eventMessage.replace('"',"*")\} )\
+#set( $em = $em.replace("<b>", "*") )\
+#set( $em = $em.replace("</b>", "*") )\
+#set( $em = $em.replace("<br>", " ") )\
+\
+\
+\{\
+ "text" : \'93AppDynamics Events Detected for Application- $\{\cf2 latestEvent.application.name\cf0 \}",\
+ "attachments": \
+ [\
+ \{\
+ "title": "Health Rule Alert - $\{latestEvent.eventTime\} - Application- $\{l\cf2 atestEvent.application.name\}\cf0 ",\
+ "title_link": "$\{latestEvent.deepLink\}",\
+  "fields": \
+ [\
+ \{\
+   "title":"Message",\
+   "value": "$sm",\
+   "short":false\
+ \},\
+  \{\
+   "title":"EventMessage",\
+   "value": "$em",\
+   "short":false\
+  \}\
+  ]\
+ \}\
+ ]\
+\}\
+#Additional details can be found here-\
+#\cf2 https://api.slack.com/docs/message-attachments}
